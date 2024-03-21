@@ -2,7 +2,6 @@ package com.company.employeemanager.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,20 +14,15 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.company.employeemanager.security.CustomerDetailService;
 import com.company.employeemanager.security.handler.CustomAuthenticationEntryPoint;
 import com.company.employeemanager.security.jwt.JwtFilter;
 
-import static org.springframework.security.config.Customizer.withDefaults;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig  {
-
-    @Autowired
-    private CustomerDetailService customerDetailService;
 
     @Autowired
     private JwtFilter jwtFilter;

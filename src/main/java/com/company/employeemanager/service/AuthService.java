@@ -8,6 +8,7 @@ import com.company.employeemanager.model.User;
 
 public interface AuthService {
     
-    ResponseEntity<String> signUp(User user);
+    ResponseEntity<?> signUp(User user);
+    ResponseEntity<?> signIn(User user);
     ArrayList<User> getUsers();
 }

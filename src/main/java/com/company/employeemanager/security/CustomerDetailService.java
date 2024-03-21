@@ -24,7 +24,7 @@ public class CustomerDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         userDetail = userRepository.findByUsername(username);
         
-        if (Objects.isNull(userDetail)){
+        if (!Objects.isNull(userDetail)){
 
             return new org.springframework.security.core.userdetails.User(userDetail.getUsername(), userDetail.getPassword(), new ArrayList<>());
         
@@ -36,7 +36,7 @@ public class CustomerDetailService implements UserDetailsService {
         
     }
 
-    public   User getUserDetail() { 
+    public User getUserDetail() { 
         return userDetail;
     }
 }

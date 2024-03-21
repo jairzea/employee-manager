@@ -1,6 +1,8 @@
 package com.company.employeemanager.model;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,14 +22,17 @@ public class User {
     @NotBlank(message = "La contraseña es obligatoria")
     private String password;
 
-     @NotBlank(message = "El nombre es obligatorio")
+    @NotBlank(message = "El nombre es obligatorio")
     private String name;
     
     private String rol;
     private Boolean state;
-    
-    // Getters y setters, constructores, y otros métodos
 
+    public User() {
+        this.rol = "USER";
+        this.state = false;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -36,8 +41,24 @@ public class User {
         this.username = username;
     }
 
-     public String getPassword() {
+    public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public Boolean getState() {
+        return state;
     }
 
 }
