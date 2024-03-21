@@ -1,9 +1,14 @@
 package com.company.employeemanager.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.company.employeemanager.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    // Puedes agregar métodos adicionales aquí si es necesario para consultas personalizadas
+    List<Employee> findByGender(String string);
+
+    List<Employee> findByAgeGreaterThanEqual(int age);
+
 }

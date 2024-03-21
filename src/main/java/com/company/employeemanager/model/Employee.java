@@ -27,12 +27,12 @@ public class Employee {
     private String lastNames;
 
     @NotBlank(message = "El sexo del empleado es obligatorio")
-    @Pattern(regexp = "^(?:M|F)$", message = "El sexo debe ser 'M' o 'F'")
+    @Pattern(regexp = "^(?:Masculino|Femenino)$", message = "El sexo debe ser 'Masculino' o 'Femenino'")
     private String gender;
     
     @PositiveOrZero(message = "La edad debe ser un número entero válido")
-    @NotBlank(message = "La edad del empleado es obligatoria")
-    private String age;
+    @NotNull(message = "La edad del empleado es obligatoria")
+    private Integer age;
 
     @NotBlank(message = "El correo del empleado es obligatorio")
     @Email(message = "El correo electrónico debe tener un formato válido")
@@ -43,7 +43,7 @@ public class Employee {
     }
 
     // Constructor con parámetros
-    public Employee(String name, String lastNames, String gender, String age, String email) {
+    public Employee(String name, String lastNames, String gender, Integer age, String email) {
         this.name = name;
         this.lastNames = lastNames;
         this.gender = gender;
@@ -84,11 +84,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
