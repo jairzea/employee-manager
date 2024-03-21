@@ -31,6 +31,14 @@ Este es un proyecto de demostración para un sistema de gestión de empleados de
 - **Usuario:** usuario (admin)
 - **Contraseña:** admin123\*
 
+## Colección de Postman
+
+También puedes descargar y probar la colección de Postman que se encuentra en el repositorio. La colección se llama "api employee-mutual.postman_collection.json".
+
+Esta colección contiene configurada una variable global llamada "tokenEmployee", la cual está definida en cada una de las rutas que requieren autenticación. Esta variable se actualiza automáticamente cuando el usuario se autentica en la API. Para autenticarse, simplemente realiza una petición al endpoint de signin. Una vez autenticado, las demás rutas estarán protegidas automáticamente.
+
+En caso de que la autenticación automática no funcione correctamente, puedes copiar y pegar el token generado y autenticar manualmente las rutas utilizando la autorización de tipo Bearer Token.
+
 ## Contribución
 
 Si deseas contribuir a este proyecto, sigue los siguientes pasos:
