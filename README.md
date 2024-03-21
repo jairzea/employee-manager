@@ -6,7 +6,7 @@ Este es un proyecto de demostración para un sistema de gestión de empleados de
 
 1. Clona este repositorio en tu máquina local usando `git clone https://github.com/jairzea/employee-manager.git`.
 2. Abre el proyecto en tu IDE favorito.
-3. Asegúrate de tener Java 17 y Maven instalados en tu sistema.
+3. Asegúrate de tener Java 17 y Maven 3.8.6 instalados en tu sistema.
 4. Compila el proyecto usando el comando `mvn clean install`.
 5. Ejecuta la aplicación Spring Boot con el comando `mvn spring-boot:run`.
 
