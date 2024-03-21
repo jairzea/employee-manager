@@ -9,6 +9,7 @@ import com.company.employeemanager.service.AuthService;
 import com.company.employeemanager.utils.ServicesUtils;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +50,7 @@ public class AuthServiceImplementation implements AuthService {
                 String encodedPassword = passwordEncoder.encode(user.getPassword());
                 user.setPassword(encodedPassword);
                 userRepository.save(user);
-                return ServicesUtils.gResponseEntity("Usuario registrado exitosamente", HttpStatus.CREATED);
+                return ServicesUtils.message("Usuario registrado exitosamente", HttpStatus.CREATED);
 
             }else {
                 return ServicesUtils.gResponseEntity("El nombre de usuario ya está en uso", HttpStatus.BAD_REQUEST);
@@ -78,7 +78,7 @@ public class AuthServiceImplementation implements AuthService {
             );
             if(authenticate.isAuthenticated()){
                 if (customerDetailService.getUserDetail().getState().equals(true)) {
-                    return new ResponseEntity<String>(jwtUtil.generateToken(customerDetailService.getUserDetail().getUsername(), customerDetailService.getUserDetail().getRol()),HttpStatus.OK);
+                    return ServicesUtils.buildTokenResponse(jwtUtil.generateToken(customerDetailService.getUserDetail().getUsername(), customerDetailService.getUserDetail().getRol()));
                 }else{
                     return ServicesUtils.gResponseEntity("Usuario inactivo", HttpStatus.INTERNAL_SERVER_ERROR);
                 }

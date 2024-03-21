@@ -1,8 +1,10 @@
 package com.company.employeemanager.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.company.employeemanager.model.Employee;
@@ -18,8 +20,11 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public Page<Employee> getAllEmployees(int page, int size) {
+        int newPage =  (page < 1) ? 1 : (page - 1);
+        int maxSize = Math.min(size, 30);
+        Pageable pageable = PageRequest.of(newPage, maxSize, Sort.by("id").ascending());
+        return employeeRepository.findAll(pageable);
     }
 
     public Employee getEmployeeById(Long id) {

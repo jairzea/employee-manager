@@ -10,11 +10,6 @@ import org.springframework.validation.BindingResult;
 
 import com.company.employeemanager.model.User;
 
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
-import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
-
 public class ServicesUtils {
     
     private ServicesUtils(){
@@ -24,6 +19,12 @@ public class ServicesUtils {
     public static ResponseEntity<?> gResponseEntity(String message, HttpStatus httpStatus){
         Map<String, Object> responseBody = new HashMap<>();
         responseBody.put("code", httpStatus.value());
+        responseBody.put("message", message);
+        return new ResponseEntity<>(responseBody, httpStatus);
+    }
+
+    public static ResponseEntity<?> message(String message, HttpStatus httpStatus){
+        Map<String, Object> responseBody = new HashMap<>();
         responseBody.put("message", message);
         return new ResponseEntity<>(responseBody, httpStatus);
     }
@@ -63,5 +64,13 @@ public class ServicesUtils {
         }
 
         return null;
+    }
+
+    public static ResponseEntity<?> buildTokenResponse(String token) {
+        String message = "Usuario autenticado con éxito";
+        String tokenType = "Bearer";
+
+        return ResponseEntity.ok()
+                .body(Map.of("access_token", token, "type", tokenType, "message", message));
     }
 }
