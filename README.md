@@ -10,6 +10,21 @@ Este es un proyecto de demostración para un sistema de gestión de empleados de
 4. Compila el proyecto usando el comando `mvn clean install`.
 5. Ejecuta la aplicación Spring Boot con el comando `mvn spring-boot:run`.
 
+## Uso de Maven
+
+Este proyecto está construido utilizando Maven, un poderoso sistema de gestión de proyectos y construcción de software en Java. Maven se encarga de manejar las dependencias, compilar el código fuente, ejecutar pruebas y empaquetar el proyecto en un archivo JAR ejecutable.
+
+### Dependencias Maven
+
+El archivo `pom.xml` en la raíz del proyecto contiene todas las dependencias de Maven necesarias para compilar y ejecutar el proyecto. Estas dependencias incluyen:
+
+- Spring Boot Starter: Conjunto de dependencias para iniciar y configurar una aplicación Spring Boot.
+- H2 Database: Base de datos en memoria utilizada para desarrollo y pruebas.
+- Spring Boot Test: Dependencias para escribir y ejecutar pruebas unitarias y de integración en Spring Boot.
+- Spring Security Test: Dependencias para realizar pruebas de seguridad en Spring Security.
+- Validation API: API de validación para validar datos en la aplicación.
+- JJWT: Biblioteca para trabajar con tokens JWT en la autenticación.
+
 ## Uso
 
 ### Endpoints de Autenticación
@@ -56,3 +71,7 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo en [tu-email@example.com](mailto:tu-email@example.com).
+
+```
+
+```
