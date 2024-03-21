@@ -2,7 +2,6 @@ package com.company.employeemanager.utils;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class ServicesUtils {
     public static ResponseEntity<?> gResponseEntity(String message, HttpStatus httpStatus){
         Map<String, Object> responseBody = new HashMap<>();
         responseBody.put("code", httpStatus.value());
-        responseBody.put("message", message);
+        responseBody.put("message", "Error " + message);
         return new ResponseEntity<>(responseBody, httpStatus);
     }
 
@@ -32,10 +31,14 @@ public class ServicesUtils {
     public static ResponseEntity<?> validation(BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         Map<String, Object> errors = new HashMap<>();
+        Map<String, Object> error = new HashMap<>();
 
         result.getFieldErrors().forEach(err -> {
-            errors.put(err.getField(), err.getDefaultMessage());
+            error.put(err.getField(), err.getDefaultMessage());
         });
+
+        errors.put("Error", error);
+
         response.put("code", HttpStatus.BAD_REQUEST.value());
         response.put("message", errors);
 
