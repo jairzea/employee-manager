@@ -70,7 +70,7 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 
 ## Contacto
 
-Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo en [tu-email@example.com](mailto:tu-email@example.com).
+Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo en [jairzeapaez@gmail.com](mailto:tu-email@example.com).
 
 ```
 
